@@ -8,6 +8,7 @@ import { User } from './user.entity';
 import { SignUpDto } from './dto/signup.dto';
 import { SignInDto } from './dto/signin.dto';
 import { DeleteDto } from './dto/delete.dto';
+import { History } from "../history/history.entity";
 
 
 @EntityRepository(User)
@@ -20,6 +21,14 @@ export class UserRepository extends Repository<User> {
     user.phoneNumber = phoneNumber;
     user.salt = await bcrypt.genSalt();
     user.password = await this.hashPassword(password, user.salt);
+    for (let index = 0; index < 5; index++) {
+      const history = new History();
+      history.DateTime = Math.random().toString(36).substring(2, 7);
+      history.price = Math.random();
+      history.start = Math.random().toString(36).substring(2, 7);
+      history.dest = Math.random().toString(36).substring(2, 7);
+      await history.save();
+    }
 
     try {
       await user.save();
