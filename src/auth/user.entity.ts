@@ -2,9 +2,7 @@ import {
   Entity,
   BaseEntity,
   PrimaryGeneratedColumn,
-  Column,
-  Unique,
-  OneToMany,
+  Column
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 

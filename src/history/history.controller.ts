@@ -3,19 +3,12 @@ import {
   Post,
   Body,
   Delete,
-  UseGuards,
   Req,
   Logger,
   Param,
-  Res,
   Patch,
-  Put,
-  UseInterceptors,
-  ClassSerializerInterceptor,
-  Get,
-  Query
+  Get
 } from '@nestjs/common';
-import { Request } from 'express';
 import { HistoryService } from './history.service';
 import { History } from './history.entity';
 import { CreateHistoryDto } from "./dto/createHistory.dto";
@@ -32,7 +25,6 @@ export class HistoryController {
   @Post()
   createHistory(
     @Body() createHistoryDto: CreateHistoryDto,
-    @Req() req,
   ): Promise<History> {
     return this.HistoryService.createHistory(createHistoryDto);
   }
@@ -40,7 +32,6 @@ export class HistoryController {
   @Delete('/:id')
   deleteTask(
     @Param('id') id: number,
-    @Req() req
   ): Promise<void> {
     return this.HistoryService.deleteHistory(id);
   }

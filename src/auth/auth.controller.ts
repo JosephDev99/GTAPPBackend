@@ -6,9 +6,6 @@ import {
   UseGuards,
   Req,
   Logger,
-  Param,
-  Res,
-  Patch,
   Put,
   UseInterceptors,
   ClassSerializerInterceptor
@@ -20,7 +17,6 @@ import { SignUpDto } from './dto/signup.dto';
 import { SignInDto } from './dto/signin.dto';
 import { User } from './user.entity';
 import { UpdatePasswordDto } from './dto/update.dto';
-import { DeleteDto } from './dto/delete.dto';
 
 @Controller('auth')
 export class AuthController {

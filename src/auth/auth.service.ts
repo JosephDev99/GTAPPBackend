@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException, Logger, HttpException, HttpStatus } from '@nestjs/common';
+import { Injectable, UnauthorizedException, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { JwtService } from '@nestjs/jwt';
 import { UserRepository } from './user.repository';
@@ -8,7 +8,6 @@ import { JwtPayload } from './interfaces/jwt-payload.interface';
 import { User } from './user.entity';
 import { UpdatePasswordDto } from "./dto/update.dto";
 import { Request } from "express"
-import { DeleteDto } from './dto/delete.dto';
 declare module "express" {
   export interface Request {
     user: any
